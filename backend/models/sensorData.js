@@ -4,14 +4,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const sensorDataSchema = new Schema({
-    missionName: {
-        type: String
+    incidentNum: {
+        type: Number
     },
     coordinates: {
         type: [Number]
-    },
-    windSpeed: {
-        type: Number,
     }
 }, {
         timestamps: true
