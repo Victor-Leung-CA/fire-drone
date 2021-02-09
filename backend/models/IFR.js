@@ -5,7 +5,11 @@ let photoSchema = require('./photos');
 const Schema = mongoose.Schema;
 
 const IFRSchema = new Schema({
-    incidentNum: Number, //Used to search photo collection
+    incidentNum: { //Used to search photo collection
+        type: Number,
+        unique: true, //No duplicate incident numbers
+        required: true
+    },
     reportedBy: String,
     elevation: Number,
     radius: Number,

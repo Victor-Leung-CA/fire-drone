@@ -2,14 +2,15 @@ var express = require('express');
 var router = express.Router();
 let sensorData = require('../models/sensorData');
 
-
 /**
- * Get request - Allows users to get all the sensor data information
+ * GET method to retrieve all sensor data information
+ * @module sensorData/GET
  * 
- * @param incidentNum: int
- * @param coordinates: array of numbers [longitude, latitude]
- * @param windSpeed: double
+ * @param {number} incidentNum
  * 
+ * @return {object} coordinates
+ * @return {number} coordinates.longitude
+ * @return {number} coordinates.latitude
  **/
 router.get('/', (req, res, next) => {
     sensorData.find()
@@ -29,22 +30,27 @@ router.get('/', (req, res, next) => {
         })
 })
 
-/*Post request - Allows Raspberry Pi to post sensor data information after a completed mission
- * missionName: string
- * coordinates: array of numbers [long, lat]
- * windSpeed: number
-*/
-router.post('/add', (req, res) => {
-    //Assign post request body input as new variables
+/**
+ * POST method for Raspberry Pi to post sensor data information after a completed mission
+ * @module sensorData/POST
+ * 
+ * @param {number} incidentNum - Number to keep track of alert/ IFR
+ * @param {object} coordinates
+ * @param {number} coordinates.longitude
+ * @param {number} coordinates.latitude
+ * 
+ * @return {object} Sucess message
+ * @return {object} Error message
+ */
+router.post('/', (req, res) => {
+    //Assign request body input as new variables
     const missionName = req.body.missionName;
     const coordinates = req.body.coordinates;
-    const windSpeed = req.body.windSpeed;
 
     //Create new struct for data
     const newSensorData = new sensorData({
         missionName,
-        coordinates,
-        windSpeed
+        coordinates
     });
 
     newSensorData.save()
