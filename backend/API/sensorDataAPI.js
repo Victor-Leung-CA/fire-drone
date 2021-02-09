@@ -2,11 +2,15 @@ var express = require('express');
 var router = express.Router();
 let sensorData = require('../models/sensorData');
 
-/*Get request - Allows users to get all the sensor data information
- * missionName: string
- * coordinates: array of numbers [long, lat]
- * windSpeed: number
-*/
+
+/**
+ * Get request - Allows users to get all the sensor data information
+ * 
+ * @param incidentNum: int
+ * @param coordinates: array of numbers [longitude, latitude]
+ * @param windSpeed: double
+ * 
+ **/
 router.get('/', (req, res, next) => {
     sensorData.find()
         .then(data => {
@@ -17,7 +21,6 @@ router.get('/', (req, res, next) => {
                 res.json(data.map(data => ({
                     missionName: data.missionName,
                     coordinates: data.coordinates, 
-                    subTeam: data.subTeam
                 })));
             }
         })
