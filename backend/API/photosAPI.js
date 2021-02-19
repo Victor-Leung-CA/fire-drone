@@ -57,11 +57,9 @@ router.post('/',(req, res, next) => {
  * @return {object} photoCollection - Collection of photos
  * @return {object} Error message
  */
-router.get('/',(req, res, next) => {
+router.get('/:incidentNum',(req, res, next) => {
     
-    const incidentNum = req.body.incidentNum; //Incident number to be referenced, should be an integer starting from 0
-
-    photosModel.findOne({'incidentNum': incidentNum})
+    photosModel.findOne({'incidentNum': req.params.incidentNum})
         .then(photoCollection => {
             if(photoCollection == null){
                 res.status(406).json({error: "No photos found"})

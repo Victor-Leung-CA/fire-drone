@@ -21,8 +21,11 @@ const db = mongoose.connection;
 //Router files
 const sensorDataAPI = require("./API/sensorDataAPI");
 app.use('/sensor-data', sensorDataAPI);
+const IFRAPI = require("./API/IFRAPI");
+app.use('/IFR', IFRAPI);
 const photosAPI = require("./API/photosAPI");
 app.use('/photos', photosAPI);
+
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('open', () => {
