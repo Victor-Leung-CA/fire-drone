@@ -2,8 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-//Initialise .env file
-require('dotenv').config();
+
 const port = process.env.PORT || 5000;
 
 //Initialise express app, use cors and express module
@@ -11,6 +10,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//Initialise .env file
+require('dotenv').config();
 //Set up default mongoose connection
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
