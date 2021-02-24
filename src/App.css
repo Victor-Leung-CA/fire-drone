@@ -1,11 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
 .App {
   text-align: left;
   background-color: white;
+  height: 100vh;
   }
-  
+
+#page-wrap {
+  text-align: center;
+  overflow: auto;
+}
+
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #4A6572;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: #4A6572;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+.bm-burger-bars {
+  background: #D5E1E8;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #D5E1E8;
+}
+
+.bm-menu {
+  background: white;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  margin-left: 0px;
+}
+
+.bm-morph-shape {
+  fill: white;
+}
+
+.bm-item-list {
+  color: #4A6572;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 .h1{
   font-family: 'Ubuntu', sans-serif;
 }
@@ -20,26 +75,4 @@
   text-decoration: none;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-li{
-  float: left;
-}
-
-li a {
-  display: block;
-  color: #4A6572;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  font-weight: bold;
 }
