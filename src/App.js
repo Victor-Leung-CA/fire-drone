@@ -11,6 +11,7 @@ import AlertHistory from "./AlertHistory";
 import Gallery from "./Gallery";
 import Map from "./Map";
 import NewIFR from "./NewIFR";
+import SSETest from "./components/sse-test"
 
 class App extends Component {
   render() {
@@ -33,6 +34,10 @@ class App extends Component {
           <Route path="/alert-history" component={AlertHistory}/>
           <Route path="/new-ifr" component={NewIFR}/>
           <Route path="/gallery" component={Gallery}/>
+
+          {/* For testing real time updates */}
+          <Route path="/sse-test" component = {SSETest}/>
+          
         </div>
       </div>
     </HashRouter>
