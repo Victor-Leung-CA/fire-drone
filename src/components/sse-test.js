@@ -21,6 +21,7 @@ class SSETest extends Component{
         this.updateCount = this.updateCount.bind(this);
     }
 
+
     // sleep time expects milliseconds
     sleep(time) {
         return new Promise((resolve) => setTimeout(resolve, time));
