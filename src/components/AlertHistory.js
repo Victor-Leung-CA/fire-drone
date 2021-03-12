@@ -1,35 +1,61 @@
-import './Alert History.css';
 import React, { Component } from "react";
+import Grid from "react-fast-grid";
+
+
+const styles = {
+  outer: {
+    borderRadius: 5,
+    boxShadow: "0 10px 30px #BBB",
+    padding: 10,
+  },
+};
+
  
-class AlertHistory extends Component {
-  render() {
-    return (
-      <div className="AlertHistory">
-          <div class="archive">
-            <article class="article">1
-            </article>
-            <article class="article">2
-            </article>
-            <article class="article">3
-            </article>
-            <article class="article">4
-            </article>
-            <article class="article">5
-            </article>
-            <article class="article">6
-            </article>
-            <article class="article">7
-            </article>
-            <article class="article">8
-            </article>
-            <article class="article">9
-            </article>
-            <article class="article">10
-            </article>
-          </div>
-      </div>
-    );
-  }
-}
- 
+export const AlertHistory = () => (
+  <div style={styles.outer}>
+    <Grid container spacing={2} direction="row">
+      <Grid item sm={6} xs={12}>
+        <div>Location</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Rank</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Suspected Cause</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Estimated Cost of Control</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Size</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Values at Risk</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Action Recommended</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Fuels</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Access</div>
+        
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <div>Status</div>
+        
+      </Grid>
+    </Grid>
+  </div>
+);
+
 export default AlertHistory;

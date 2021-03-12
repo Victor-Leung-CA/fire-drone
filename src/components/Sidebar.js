@@ -10,6 +10,8 @@ import Gallery from "./Gallery";
 import Map from "./Map";
 import NewIFR from "./NewIFR";
 import {slide as Menu} from 'react-burger-menu';
+import SSETest from "./sse-test";
+
 
 class SideBar extends Component {
   render() {
@@ -17,8 +19,9 @@ class SideBar extends Component {
     <HashRouter>
       <div className="App">
     
-        <h1> FireDrone </h1>
+        
         <Menu>
+            <h1> FireDrone </h1>
             <a><NavLink to="/" className="menu-item">Dashboard</NavLink></a>
             <a><NavLink to="/map" className="menu-item">Map</NavLink></a>
             <a><NavLink to="/alert-history" className="menu-item">Alert History</NavLink></a>
@@ -32,6 +35,8 @@ class SideBar extends Component {
           <Route path="/alert-history" component={AlertHistory}/>
           <Route path="/new-ifr" component={NewIFR}/>
           <Route path="/gallery" component={Gallery}/>
+
+          <Route path="/sse-test" component = {SSETest}/>
           
         </div>
       </div>
