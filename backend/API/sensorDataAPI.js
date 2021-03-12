@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let sensorData = require('../models/sensorData');
+var alertEvent = require('./SSE').event;
 
 /**
  * GET method to retrieve all sensor data information
@@ -70,6 +71,7 @@ router.post('/', (req, res) => {
     const incidentNum = req.body.incidentNum;
     const coordinates = req.body.coordinates;
 
+
     //Create new struct for data
     const newSensorData = new sensorData({
         incidentNum,
@@ -78,10 +80,12 @@ router.post('/', (req, res) => {
 
     newSensorData.save()
         .then(() => {
-            res.json("Data information appended!")
+            alertEvent.emit('alertUpdate');
+            res.json("Data information appended!");
         })
         .catch(err => {
-            res.status(400).json(err.message)
+            res.status(400).json(err.message);
+            console.log(message);
         })
 });
 
