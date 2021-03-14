@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Grid from "react-fast-grid";
+import '../css/Alert History.css';
 
 
 const styles = {

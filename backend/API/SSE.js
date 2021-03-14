@@ -9,19 +9,20 @@ var alertEvent = new events.EventEmitter();
 
 //Global data
 var count = 0; //test global count
-var sensorDataCollection = sensorData.find();
+var sensorDataCollection = [];
 
-alertEvent.on('alertUpdate', () => {
-    sensorDataCollection = sensorData.find();
-})
-
-const sendData = () => {
-    return(JSON.stringify(sensorDataCollection.map(item => ({
-        incidentNum: data.incidentNum,
-        coordinates: data.coordinates,
-    }))))
+const updateData = () => {
+    sensorData.find().then(item => {
+        sensorDataCollection = item;
+        alertEvent.emit('updated');
+    })
 }
 
+updateData();
+
+alertEvent.on('alertUpdate', () => {
+    updateData();
+})
 
 router.get('/', (req, res, next) => {
 
@@ -41,6 +42,7 @@ router.get('/', (req, res, next) => {
     //Initial data package
     if(connection){
         res.write('event: countUpdate\n' + 'data:' + JSON.stringify(count) + "\n\n");
+        res.write('event: alertUpdate\n' + 'data:' + JSON.stringify(sensorDataCollection) + "\n\n");
     }
 
     //Event based updates to clients
@@ -50,10 +52,9 @@ router.get('/', (req, res, next) => {
         }
     });
 
-    alertEvent.on('alertUpdate', () => {
+    alertEvent.on('updated', () => {
         if(connection){
-            console.log(sendData());
-            res.write('event: alertUpdate\n' + 'data:' + sendData() + "\n\n");
+            res.write('event: alertUpdate\n' + 'data:' + JSON.stringify(sensorDataCollection) + "\n\n");
         }
     })
 
