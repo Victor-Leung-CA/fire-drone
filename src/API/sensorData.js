@@ -27,7 +27,7 @@ const getOneSensorData = async (incidentNum) => {
 
     try{
         //Using local host for now, but we need to change this URL for production
-        const response = await axios.get('http://localhost:5000/sensor-data/' + incidentNum);
+        const response = await axios.get('http://localhost:5000/sensor-data/incident/' + incidentNum);
         console.log(response);
         return(response);
     } catch (error){
@@ -37,4 +37,20 @@ const getOneSensorData = async (incidentNum) => {
 
 }
 
-export {getSensorData, getOneSensorData};
+/**
+ * Get method to retrieve number of sensor data collections
+ * @return {Number} Number of sensor data collections
+ */
+const getNumSensorData = async () => {
+    try{
+        //Using local host for now, but we need to change this URL for production
+        const response = await axios.get('http://localhost:5000/sensor-data/count');
+        console.log(response.data);
+        return(response.data);
+    } catch (error){
+        console.log(error);
+        return(error);
+    }
+}
+
+export {getSensorData, getOneSensorData, getNumSensorData};

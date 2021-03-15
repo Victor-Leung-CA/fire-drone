@@ -9,6 +9,8 @@ import dashboardImg from '../images/dashboard.svg';
 import mapImg from '../images/map.svg';
 import alertImg from '../images/journal-album.svg';
 import galleryImg from '../images/images.svg'
+import penImg from '../images/pen.svg'
+
 
 const items = [
   { name: '/dashboard', label: 'Dashboard', url: "/dashboard" },
@@ -49,19 +51,13 @@ class Sidebar extends React.Component {
                     className="navbarLink" 
                     activeClassName="active" 
                     to='/new-ifr'>
-                    <img className="sidebarIcon" src={alertImg}/>New IFR
+                    <img className="sidebarIcon" src={penImg}/>New IFR
                 </NavLink>
                 <NavLink 
                     className="navbarLink" 
                     activeClassName="active" 
                     to='/gallery'>
                     <img className="sidebarIcon" src={galleryImg}/>Gallery
-                </NavLink>
-                <NavLink 
-                    className="navbarLink" 
-                    activeClassName="active" 
-                    to='/edit-ifr/1'>
-                    <img className="sidebarIcon" src={alertImg}/>Testing Data
                 </NavLink>
                 <NavLink 
                     className="navbarLink" 

@@ -39,7 +39,7 @@ router.get('/', (req, res, next) => {
  * @return {number} coordinates.longitude
  * @return {number} coordinates.latitude
  **/
-router.get('/:incidentNum', (req, res, next) => {
+router.get('/incident/:incidentNum', (req, res, next) => {
     sensorData.findOne({"incidentNum": req.params.incidentNum})
         .then(data => {
             if(data == null){
@@ -60,22 +60,17 @@ router.get('/:incidentNum', (req, res, next) => {
  * 
  * @return {number} numAlerts
  **/
-router.get('/numAlerts', (req, res, next) => {
-    sensorData.find()
-        .then(data => {
-            if(data == null){
-                res.status(406).json("No data available");
-            }
-            else{
-                res.json(data.map(data => ({
-                    incidentNum: data.incidentNum,
-                    coordinates: data.coordinates, 
-                })));
-            }
-        })
-        .catch((err) => {
-            res.status(400).json(err.message);
-        })
+router.get('/count', (req, res, next) => {
+    sensorData.estimatedDocumentCount((err,count) =>{
+        if (err){ 
+            console.log(err);
+            res.status(400).json("err");
+
+        }else{ 
+            console.log(count);
+            res.json(count);
+        } 
+    })
 })
 
 /**

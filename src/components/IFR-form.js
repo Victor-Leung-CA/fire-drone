@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 // import Select from "react-select"
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/IFR-form.css"
-const getOneSensorData = require("../API/sensorData").getOneSensorData
+import "../css/IFR-form.css";
+const getOneSensorData = require("../API/sensorData").getOneSensorData;
 
 const IFRForm = (props) => {
     const [sensorDataInfo, setSensorDataInfo] = useState({
