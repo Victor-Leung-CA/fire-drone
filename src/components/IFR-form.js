@@ -47,7 +47,7 @@ const IFRForm = (props) => {
 
     useEffect(() => {
         getOneSensorData(props.match.params.incidentNum).then(data => {
-            setSensorDataInfo(data.data);
+            setSensorDataInfo(data);
         });
     }, []);
 
