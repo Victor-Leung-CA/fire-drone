@@ -1,0 +1,6 @@
+.map{
+    font-family:Lato;
+    width: calc(100vw - 350px);
+    margin-left: 350px;
+    padding: 10vh;
+}

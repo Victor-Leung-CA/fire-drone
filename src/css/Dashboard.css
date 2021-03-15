@@ -1,0 +1,24 @@
+.page{
+    font-family:Lato;
+    width: calc(100vw - 350px);
+    margin-left: 350px;
+    padding: 10vh;
+}
+
+.refreshButton{
+    padding:10px;
+}
+
+.recentAlerts{
+    padding:10px;
+}
+
+.graph{
+    padding:10px;
+
+}
+
+.fireRisk{
+    padding:10px;
+
+}

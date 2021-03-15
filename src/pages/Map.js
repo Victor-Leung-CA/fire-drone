@@ -1,10 +1,12 @@
 import React from 'react';
+import '../css/Map.css';
+
 
 
 const Map = () => {
   return (
-    <div>
-      <h2>Members Page</h2>
+    <div className="map">
+      <h2>Active Fire Map</h2>
     </div>
   )
 }
