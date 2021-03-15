@@ -1,5 +1,5 @@
 import React from 'react';
-import{ Route, NavLink, BrowserRouter } from "react-router-dom";
+import{ Route, Switch, BrowserRouter } from "react-router-dom";
 
 //Page imports
 import Sidebar from './components/Sidebar';
@@ -17,13 +17,15 @@ class App extends React.Component {
     <body>
       <BrowserRouter basename="/">
           <Route path="/" component = {Sidebar} />
-          <Route path="/dashboard" exact component = {Dashboard} />
-          <Route path="/map" exact component = {Map} />
-          <Route path="/alert-history" exact component = {AlertHistory} />
-          <Route path="/new-ifr" exact component = {NewIFR} />
-          <Route path="/gallery" exact component = {Gallery} />
-          <Route path="/edit-ifr/:incidentNum" exact component = {IFRForm} />
-          <Route path="/sse-test" exact component = {SSETest} />
+          <Switch>
+            <Route path="/dashboard" exact component = {Dashboard} />
+            <Route path="/map" exact component = {Map} />
+            <Route path="/alert-history" exact component = {AlertHistory} />
+            <Route path="/new-ifr" exact component = {NewIFR} />
+            <Route path="/gallery" exact component = {Gallery} />
+            <Route path="/edit-ifr/:incidentNum" exact component = {IFRForm} />
+            <Route path="/sse-test" exact component = {SSETest} />
+          </Switch>
       </BrowserRouter>
     </body>
   );

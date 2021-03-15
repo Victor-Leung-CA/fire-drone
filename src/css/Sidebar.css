@@ -17,6 +17,12 @@
     padding-top: 2rem;
 }
 
+.sidebarLogo{
+  width: 40%;
+  margin: auto;
+  display: block;
+}
+
 .sidebarIcon{
     font-size: 1.3rem;
     margin-right: 1rem;

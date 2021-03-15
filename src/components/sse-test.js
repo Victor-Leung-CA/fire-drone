@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../css/sse-test.css"
 
 class SSETest extends Component{
     constructor(props){
@@ -46,7 +47,8 @@ class SSETest extends Component{
 
     render() {
         return (
-            <div>
+            <div className ="sseTestWrapper">
+                Hello
                 <p>Count variable: {this.state.count}</p>
             </div>
         );

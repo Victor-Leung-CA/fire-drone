@@ -4,9 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/IFR-form.css"
 const getOneSensorData = require("../API/sensorData").getOneSensorData
 
-
-
 const IFRForm = (props) => {
+    const [sensorDataInfo, setSensorDataInfo] = useState({
+        incidentNum: 0,
+        coordinates: [{
+            longitude: 0,
+            latitude: 0,
+            time: 0
+        }]
+    })
+    
     const [formInfo, setFormInfo] = useState({
     incidentNum: props.incidentNum,
     reportedBy: '',
@@ -28,14 +35,7 @@ const IFRForm = (props) => {
     estCost: 0
     });
 
-    const [sensorDataInfo, setSensorDataInfo] = useState({
-        incidentNum: 0,
-        coordinates: [{
-            longitude: 0,
-            latitude: 0,
-            time: 0
-        }]
-    })
+
 
     const handleInputChange = (e) => {
         const value = e.value;
