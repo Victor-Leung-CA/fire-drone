@@ -1,0 +1,40 @@
+/*work in progress*/
+
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body {
+  background: #F4F5F7;
+  color: #4A6572;
+  padding: 4em;
+  font-family: Lato;
+  line-height: 1.15;
+}
+
+.AlertHistory {
+  padding: 2em;
+  background: #F4F5F7;
+  max-width: 1100px;
+}
+
+.archive {
+  WIDTH:100VW;
+  HEIGHT:100VH;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 1em;
+  background:#F4F5F7;
+}
+
+.article {
+  color:#323C47;
+  padding: 1em;
+  background: red;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+}
+
+.article.info{
+  color:#4C5862;
+}
