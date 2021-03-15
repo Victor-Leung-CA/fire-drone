@@ -6,19 +6,23 @@
   position: fixed;
   height: 100%;
   overflow: auto;
-  box-shadow: 0 0 20px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px -2px rgba(212, 212, 212, 0.671);
 }
 
 .sidebarTitle{
     text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 0.08rem;
     font-weight: bold;
-    color: rgb(182, 91, 6);
+    background: -webkit-linear-gradient(30deg, rgb(255, 217, 0), rgb(207, 110, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     padding-bottom: 2rem;
     padding-top: 2rem;
 }
 
 .sidebarLogo{
-  width: 40%;
+  width: 70%;
   margin: auto;
   display: block;
 }
@@ -26,76 +30,70 @@
 .sidebarIcon{
     font-size: 1.3rem;
     margin-right: 1rem;
+    width: 1.5rem;
+    filter: opacity(40%);
 }
 
 .sidebar .navbarLink {
+  border-style: solid white;
   color: black;
   padding-left: 2rem;
   text-decoration: none;
   font-size: 1.2rem;
   display: block;
-  float: left;
-  margin: 1rem;
+  padding: 1.3rem;
+  padding-left: 3rem;
 }
 
 .sidebar .navbarLink.active {
-  color: rgb(192, 127, 5);
+  border-width: 5px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      rgb(255, 94, 0), 
+      rgb(107, 1, 1)
+    ) 3 100%;
+  color: rgb(155, 27, 27);
+  padding-left: 2.7rem;
+  margin-top:-0.3rem;
+  margin-bottom: -0.3rem;
 }
 
 .sidebar .navbarLink:hover:not(.active) {
-    color: rgb(121, 79, 0);
-}
-
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+  background: -webkit-linear-gradient(rgb(185, 79, 9), rgb(231, 193, 23));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media screen and (max-width: 1350px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
+
   }
   .sidebar .navbarLink {
-      float: left;
-      text-align: center;
-      padding-left: 6rem;
-      padding-bottom: 0.7rem;
-      padding-top: 0;
-      margin: 0;
+
     }
 
   .sidebarTitle{
-    padding-top: 0;
-    padding-bottom: 1rem;
-  }
 
-  div.content {margin-left: 0;}
+  }
 }
+
 
 @media screen and (max-width: 800px) {
 
   .sidebar .navbarLink {
-    text-align: center;
-    display: inline-block;
+
   }
 }
 
 @media screen and (max-width: 500px) {
 
   .sidebarTitle{
-    font-weight: bold;
-    padding-bottom: 1rem;
-    padding-top: 0;
+
   }
 
   .sidebar .navbarLink {
-    text-align: center;
-    float: none;
-    padding-left: 0;
-    display: block;
-    padding-bottom: 0.2rem;
+
   }
 }

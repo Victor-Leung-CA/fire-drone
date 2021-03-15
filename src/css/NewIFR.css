@@ -1,0 +1,33 @@
+.newIFRContainer{
+    width: calc(100vw - 350px);
+    margin-left: 350px;
+    padding-top: 20vh;
+}
+
+.newIFRSubcontainer{
+    text-align: center;
+    padding: 5rem;
+}
+
+.newIFRSelect{
+    width: 8rem;
+    display: inline-block;
+}
+
+.newIFRbtn{
+    margin-top: 5rem;
+    border-radius: 2rem;
+    padding: 0.6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: 0 0 0px 1px black;
+}
+
+.newIFRbtn:hover{
+    box-shadow: 0 0 5px 0.5px black;
+}
+
+.pencilImg{
+    width: 1.3rem;
+    margin-right: 0.6rem;
+}

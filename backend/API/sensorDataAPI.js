@@ -55,6 +55,30 @@ router.get('/:incidentNum', (req, res, next) => {
 })
 
 /**
+ * GET method to retrieve number of incident numbers
+ * @module sensorData/GET
+ * 
+ * @return {number} numAlerts
+ **/
+router.get('/numAlerts', (req, res, next) => {
+    sensorData.find()
+        .then(data => {
+            if(data == null){
+                res.status(406).json("No data available");
+            }
+            else{
+                res.json(data.map(data => ({
+                    incidentNum: data.incidentNum,
+                    coordinates: data.coordinates, 
+                })));
+            }
+        })
+        .catch((err) => {
+            res.status(400).json(err.message);
+        })
+})
+
+/**
  * POST method for Raspberry Pi to post sensor data information after a completed mission
  * @module sensorData/POST
  * 

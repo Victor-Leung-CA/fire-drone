@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import AlertHistory from "./pages/AlertHistory";
 import Gallery from "./pages/Gallery";
 import Map from "./pages/Map";
-import NewIFR from "./pages/NewIFR";
+import NewIFR from "./components/NewIFR";
 import IFRForm from "./components/IFR-form";
 import SSETest from "./components/sse-test";
 

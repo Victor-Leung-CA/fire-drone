@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ImageGallery from 'react-image-gallery';
 import "../css/Gallery.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const images = [
  {
@@ -28,8 +29,11 @@ const images = [
 class Gallery extends React.Component {
   render() {
     return(
-      <div className = "gallery">
-        <ImageGallery items={images} className= "galleryComponent"/>
+      <div className = "gallery container-fluid">
+        <h2>Image Gallery</h2>
+        <div className= "galleryComponent">
+          <ImageGallery items={images}/>
+        </div>
       </div>
     ) 
   }

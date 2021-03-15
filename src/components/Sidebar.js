@@ -1,10 +1,14 @@
 import React from 'react';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import "bootstrap/dist/css/bootstrap.min.css";
 import{ Router, NavLink, Link} from "react-router-dom";
 import '../css/Sidebar.css';
-import fireDroneLogo from '../images/FireDrone Logo Min.png';
+
+//Images
+import fireDroneLogo from '../images/FireDrone Logo.svg';
+import dashboardImg from '../images/dashboard.svg';
+import mapImg from '../images/map.svg';
+import alertImg from '../images/journal-album.svg';
+import galleryImg from '../images/images.svg'
 
 const items = [
   { name: '/dashboard', label: 'Dashboard', url: "/dashboard" },
@@ -22,19 +26,49 @@ class Sidebar extends React.Component {
     return(
         <nav className="sidebar">
             <img className = "sidebarLogo" src={fireDroneLogo} />
-            <h3 className="sidebarTitle" >FireDrone</h3>
-            <List disablePadding dense>
-                {items.map(({label, name, url}) => (
-                    <ListItem key={name}>
-                        <NavLink 
-                            className="navbarLink" 
-                            activeClassName="active" 
-                            to={url}>
-                            {label}
-                        </NavLink>
-                    </ListItem>
-                ))}
-            </List>
+            {/* <h3 className="sidebarTitle" >FireDrone</h3> */}
+                <NavLink 
+                    className="navbarLink" 
+                    activeClassName="active" 
+                    to='/dashboard'>
+                    <img className="sidebarIcon" src={dashboardImg}/> Dashboard
+                </NavLink>
+                <NavLink 
+                    className="navbarLink" 
+                    activeClassName="active" 
+                    to='/map'>
+                    <img className="sidebarIcon" src={mapImg}/>Map
+                </NavLink>
+                <NavLink 
+                    className="navbarLink" 
+                    activeClassName="active" 
+                    to='/alert-history'>
+                    <img className="sidebarIcon" src={alertImg}/>Alert History
+                </NavLink>
+                <NavLink 
+                    className="navbarLink" 
+                    activeClassName="active" 
+                    to='/new-ifr'>
+                    <img className="sidebarIcon" src={alertImg}/>New IFR
+                </NavLink>
+                <NavLink 
+                    className="navbarLink" 
+                    activeClassName="active" 
+                    to='/gallery'>
+                    <img className="sidebarIcon" src={galleryImg}/>Gallery
+                </NavLink>
+                <NavLink 
+                    className="navbarLink" 
+                    activeClassName="active" 
+                    to='/edit-ifr/1'>
+                    <img className="sidebarIcon" src={alertImg}/>Testing Data
+                </NavLink>
+                <NavLink 
+                    className="navbarLink" 
+                    activeClassName="active" 
+                    to='/sse-test'>
+                    <img className="sidebarIcon" src={alertImg}/>SSE Test
+                </NavLink>
         </nav>
     );
   }
