@@ -2,17 +2,7 @@ import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import{ Route, NavLink, BrowserRouter, Switch } from "react-router-dom";
-
-//page imports
-import Dashboard from "../pages/Dashboard";
-import AlertHistory from "../pages/AlertHistory";
-import Gallery from "../pages/Gallery";
-import Map from "../pages/Map";
-import NewIFR from "../pages/NewIFR";
-import IFRForm from "./IFR-form";
-import SSETest from "./sse-test";
-
+import{ Router, NavLink, Link} from "react-router-dom";
 import '../css/Sidebar.css';
 
 
@@ -29,47 +19,23 @@ const items = [
 
 class Sidebar extends React.Component {
   render(){
-  return(
-    <div className="navbar">
-          <BrowserRouter>
-              <List disablePadding dense>
-                  {items.map(({ label, name, url, ...rest }) => (
-                      <ListItem key={name} button {...rest}>
-                          <NavLink to={url}>{label}</NavLink>
-                      </ListItem>
-                  ))}
-              </List>
-
-              {/* Routes */}
-              <Route path="/dashboard">
-                  <Dashboard />
-              </Route>
-              <Route path="/map">
-                  <Map />
-              </Route>
-              <Route path="/alert-history">
-                  <AlertHistory />
-              </Route>
-              <Route path="/new-ifr">
-                  <NewIFR />
-              </Route>
-              <Route path="/gallery">
-                  <Gallery />
-              </Route>
-
-              {/* IFR paths for different incident nums */}
-              <Route path="/edit-ifr/:incidentNum">
-                  <IFRForm />
-              </Route>
-
-              {/* For testing real time updates */}
-              <Route path="/sse-test">
-                  <SSETest />
-              </Route>
-
-          </BrowserRouter>
-    </div>
-  );
+    return(
+        <nav className="sidebar">
+            <h3 className="sidebarTitle" >FireDrone</h3>
+            <List disablePadding dense>
+                {items.map(({ label, name, url, ...rest }) => (
+                    <ListItem key={name} button {...rest}>
+                        <NavLink 
+                            className="navbarLink" 
+                            activeClassName="active" 
+                            to={url}>
+                            {label}
+                        </NavLink>
+                    </ListItem>
+                ))}
+            </List>
+        </nav>
+    );
   }
 }
 export default Sidebar;

@@ -17,15 +17,11 @@
     "react-bootstrap": "^1.5.0",
     "react-burger-menu": "^3.0.4",
     "react-dom": "^17.0.1",
-<<<<<<< HEAD
     "react-image-gallery": "^1.0.9",
-=======
     "react-fast-grid": "^2.1.9",
     "react-icons": "^4.2.0",
-    "react-image-gallery": "^1.0.9",
     "react-jss": "^10.5.1",
     "react-minimal-side-navigation": "^1.8.0",
->>>>>>> f2c98e05e51457fccf7a3fc2cf5609f46da230e2
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-select": "^4.1.0",

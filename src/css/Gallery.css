@@ -1,1 +1,12 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
+
+.gallery{
+    width: calc(100vw - 470px);
+    left: 400px;
+    position: relative;
+    height: 100vh;
+}
+
+.galleryComponent{
+    height: 100%;
+}

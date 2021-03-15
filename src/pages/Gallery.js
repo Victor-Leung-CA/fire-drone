@@ -1,19 +1,11 @@
-<<<<<<< HEAD:src/Gallery.js
 import React, {Component} from "react";
-=======
-//npm install react-image-gallery
-import "react-image-gallery/styles/css/image-gallery.css";
-
-import React from "react";
-
->>>>>>> f2c98e05e51457fccf7a3fc2cf5609f46da230e2:src/pages/Gallery.js
 import ImageGallery from 'react-image-gallery';
-import "./css/Gallery.css"
+import "../css/Gallery.css"
 
 const images = [
  {
-   original: 'https://picsum.photos/id/125/1000/600/',
-   thumbnail: 'https://picsum.photos/id/125/250/150/',
+   original: '../FireDrone Logo.png',
+   thumbnail: 'https://picsum.photos/id/10/1000/600/',
  },
  {
   original: 'https://picsum.photos/id/10/1000/600/',
@@ -67,7 +59,11 @@ const images = [
  
 class Gallery extends React.Component {
   render() {
-    return <ImageGallery items={images} />
+    return(
+      <div className = "gallery">
+        <ImageGallery items={images} className= "galleryComponent"/>
+      </div>
+    ) 
   }
 }
  
