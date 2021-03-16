@@ -1,16 +1,24 @@
-/*work in progress*/
-
 /*fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 .AlertHistory {
-  font-family:Lato;
-  background: #F4F5F7;
+  font-family: Lato;
   width: calc(100vw - 350px);
   margin-left: 350px;
-  padding: 10vh;
+  padding: 10rem;
+  background-color: rgb(245, 244, 244);
+  min-height: 100vh;
 }
+
+.alertBlock{
+  padding: 2rem;
+  box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
+  border-radius: 0.5rem;
+  background-color: white;
+  margin: 3rem;
+}
+
 
 .archive {
   display: grid;
@@ -23,7 +31,7 @@
   color:#323C47;
   padding: 1em;
   background: red;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 6px -3px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
 }
 

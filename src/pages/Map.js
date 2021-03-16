@@ -1,15 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../css/Map.css';
 import GoogleMapReact from 'google-map-react'
 
-
-const Map = () => {
-  return (
-    <div className="map">
-      <h2>Active Fire Map</h2>
-    </div>
-  )
-}
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
   static defaultProps = {
@@ -22,8 +15,7 @@ class Map extends Component {
 
   render() {
     return (
-      
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div className="mapContainer">
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyAChc-w8pscsRgaW5t1S2jyHLNzRVpOO9c' }}
           defaultCenter={this.props.center}
@@ -34,6 +26,7 @@ class Map extends Component {
             lng={30.337844}
             text="My Marker"
           />
+          
         </GoogleMapReact>
       </div>
     );

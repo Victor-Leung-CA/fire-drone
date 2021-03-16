@@ -18,7 +18,7 @@ class App extends React.Component {
       <BrowserRouter basename="/">
           <Route path="/" component = {Sidebar} />
           <Switch>
-            <Route path="/dashboard" exact component = {Dashboard} />
+            <Route path="/" exact component = {Dashboard} />
             <Route path="/map" exact component = {Map} />
             <Route path="/alert-history" exact component = {AlertHistory} />
             <Route path="/new-ifr" exact component = {NewIFR} />

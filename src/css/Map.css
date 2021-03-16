@@ -1,6 +1,7 @@
-.map{
-    font-family:Lato;
+.mapContainer{
+    font-family: Lato;
     width: calc(100vw - 350px);
+    height: 100vh;
     margin-left: 350px;
-    padding: 10vh;
+    background-color: rgb(245, 244, 244);
 }

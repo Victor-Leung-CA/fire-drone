@@ -1,24 +1,52 @@
 .page{
-    font-family:Lato;
+    font-family: Lato;
     width: calc(100vw - 350px);
     margin-left: 350px;
-    padding: 10vh;
+    padding: 10rem;
+    background-color: rgb(245, 244, 244);
+    min-height: 100vh;
 }
 
-.refreshButton{
-    padding:10px;
+
+
+.refreshBtn{
+    border-radius: 2rem;
+    padding: 0.6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: 0 0 7px -5px rgb(144, 144, 144);
+    background-color: white;
+}
+
+.refreshBtn:hover{
+    box-shadow: 0 1px 8.5px -5px black;
 }
 
 .recentAlerts{
-    padding:10px;
+    padding: 2rem;
+    margin: 2rem;
+    margin-left: 0;
+    margin-top: 0;
+    box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.graphContainer{
+    padding: 2rem;
+    box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
+    border-radius: 0.5rem;
+    background-color: white;
 }
 
 .graph{
-    padding:10px;
-
+    min-width: 500px i !important;
+    height: 1000px;
 }
 
 .fireRisk{
-    padding:10px;
-
+    padding: 2rem;
+    box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
+    border-radius: 0.5rem;
+    background-color: white;
 }
