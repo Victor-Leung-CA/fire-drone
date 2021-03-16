@@ -12,8 +12,10 @@ const NewIFR = (props) => {
 
     useEffect(()=>{
         getNum().then(number => {
-            for (var i=0; i < number; i++){
-                options.push({value: i, label: i});
+            if(options.length < number){
+                for (var i=0; i < number; i++){
+                    options.push({value: i, label: i});
+                }
             }
         });
     }, [])
