@@ -28,8 +28,10 @@ const getOneSensorData = async (incidentNum) => {
     try{
         //Using local host for now, but we need to change this URL for production
         const response = await axios.get('http://localhost:5000/sensor-data/incident/' + incidentNum);
-        return(response.data);
+        console.log(response);
+        return(response);
     } catch (error){
+        console.log(error);
         return(error);
     }
 
@@ -43,8 +45,10 @@ const getNumSensorData = async () => {
     try{
         //Using local host for now, but we need to change this URL for production
         const response = await axios.get('http://localhost:5000/sensor-data/count');
+        console.log(response.data);
         return(response.data);
     } catch (error){
+        console.log(error);
         return(error);
     }
 }

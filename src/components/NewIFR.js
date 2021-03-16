@@ -3,7 +3,6 @@ import Select from "react-select"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/NewIFR.css"
 import pencilImg from '../images/pencil-square.svg';
-
 const getNum = require("../API/sensorData").getNumSensorData;
 
 var options = [];
@@ -13,10 +12,8 @@ const NewIFR = (props) => {
 
     useEffect(()=>{
         getNum().then(number => {
-            if(options.length < number){
-                for (var i=0; i < number; i++){
-                    options.push({value: i, label: i});
-                }
+            for (var i=0; i < number; i++){
+                options.push({value: i, label: i});
             }
         });
     }, [])
