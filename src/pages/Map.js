@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/Map.css';
-
+import GoogleMapReact from 'google-map-react'
 
 
 const Map = () => {
