@@ -26,7 +26,7 @@ const images = [
  },
  ];
  
-class Gallery extends React.Component {
+class Gallery extends Component {
   render() {
     return(
       <div className = "gallery container-fluid">

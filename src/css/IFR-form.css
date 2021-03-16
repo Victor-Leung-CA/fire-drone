@@ -1,7 +1,15 @@
 .IFR-form-body{
-    width: calc(100vw - 470px);
-    left: 400px;
-    position: relative;
+    font-family: Lato;
+    width: calc(100vw - 350px);
     height: 100vh;
-    padding-top: 10%;
+    margin-left: 350px;
+    background-color: rgb(245, 244, 244);
+}
+
+.IFRFormBlock{
+    padding: 2rem;
+    margin: 2rem;
+    box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
+    border-radius: 0.5rem;
+    background-color: white;
 }

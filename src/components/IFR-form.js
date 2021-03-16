@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import Select from "react-select"
+import Select from "react-select"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/IFR-form.css";
 const getOneSensorData = require("../API/sensorData").getOneSensorData;
@@ -36,7 +36,6 @@ const IFRForm = (props) => {
     });
 
 
-
     const handleInputChange = (e) => {
         const value = e.value;
         const name = e.name;
@@ -60,6 +59,10 @@ const IFRForm = (props) => {
                 return <p>{"Longitude: " + coords.longitude + " ,Latitude: " + coords.latitude} <br /></p>;
             })}
             <p>Time: {sensorDataInfo.coordinates[0].time}</p>
+
+            <div className="IFRFormBlock">
+                <Select />
+            </div>
         </div>
     );
 }
