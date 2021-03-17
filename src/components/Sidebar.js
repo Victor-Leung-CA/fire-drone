@@ -1,6 +1,6 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import{ Router, NavLink, Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import '../css/Sidebar.css';
 
 //Images

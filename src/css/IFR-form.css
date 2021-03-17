@@ -1,15 +1,68 @@
 .IFR-form-body{
     font-family: Lato;
     width: calc(100vw - 350px);
-    height: 100vh;
     margin-left: 350px;
     background-color: rgb(245, 244, 244);
+    padding-bottom: 8rem;
+}
+
+.formHeader{
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
 }
 
 .IFRFormBlock{
-    padding: 2rem;
-    margin: 2rem;
+    padding: 3rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-bottom: 2rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
     border-radius: 0.5rem;
     background-color: white;
+}
+
+.formBlockTitle{
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.formBlockBorder{
+}
+
+.formBlockCol{
+    padding: 2rem;
+    padding-top: 0;
+}
+
+.formSubmissionSelect{
+    margin-bottom: 1.2rem;
+    margin-left: 0;
+    width: 80%;
+}
+
+.IFRInput{
+    border: 1px solid rgb(214, 213, 213);
+    border-radius: 3px;
+    height: 2.2rem;
+    padding: 0.5rem;
+    width: 80%;
+    margin-bottom: 1.2rem;
+}
+
+.IFRFormBtn{
+    border-radius: 2rem;
+    padding: 0.6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-shadow: 0 0 7.5px -5px rgb(53, 53, 53);
+    background-color: white;
+    margin: auto;
+    display: block;
+}
+
+.IFRFormBtn:hover{
+    box-shadow: 0 1px 8.5px -5px black;
 }

@@ -1,17 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Grid from "react-fast-grid";
 import '../css/AlertHistory.css';
-
-
-const styles = {
-  outer: {
-    borderRadius: 5,
-    boxShadow: "0 10px 30px #BBB",
-    padding: 10,
-    marginBottom:25,
-  },
-};
-
  
 export const AlertHistory = () => (
   <div className="AlertHistory">
