@@ -10,7 +10,7 @@ const getIFR = async () => {
         //Using local host for now, but we need to change this URL for production
         const response = await axios.get('http://localhost:5000/IFR');
         console.log(response);
-        return(response);
+        return(response.data);
     } catch (error){
         console.log(error);
         return(error);
@@ -29,7 +29,7 @@ const getOneIFR = async (incidentNum) => {
         //Using local host for now, but we need to change this URL for production
         const response = await axios.get('http://localhost:5000/IFR/' + incidentNum);
         console.log(response);
-        return(response);
+        return(response.data);
     } catch (error){
         console.log(error);
         return(error);
@@ -38,7 +38,7 @@ const getOneIFR = async (incidentNum) => {
 }
 
 /**
- * Get method to retrieve an IFR report
+ * Put method to update an IFR report
  * @param {number} incidentNum
  * @return Response Message
  */
@@ -46,7 +46,7 @@ const updateIFR = async (updatedIFR) => {
 
     try{
         //Using local host for now, but we need to change this URL for production
-        const response = await axios.put('http://localhost:5000/IFR', updatedIFR);
+        const response = await axios.put('http://localhost:5000/IFR/' + updatedIFR.incidentNum, updatedIFR);
         console.log(response);
         return(response);
     } catch (error){

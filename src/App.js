@@ -14,7 +14,7 @@ import SSETest from "./components/sse-test";
 class App extends React.Component {
   render(){
   return(
-    <body>
+    <div>
       <BrowserRouter basename="/">
           <Route path="/" component = {Sidebar} />
           <Switch>
@@ -27,7 +27,7 @@ class App extends React.Component {
             <Route path="/sse-test" exact component = {SSETest} />
           </Switch>
       </BrowserRouter>
-    </body>
+    </div>
   );
   }
 }

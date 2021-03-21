@@ -12,8 +12,13 @@ const getSensorData = async () => {
         console.log(response);
         return(response);
     } catch (error){
-        console.log(error);
-        return(error);
+        if (error.response) {
+            throw new Error(error.response.status);
+        }
+        else if(error.request){
+            throw new Error(error.request.status);
+        }
+        throw new Error(error.message);
     }
 
 }
@@ -28,11 +33,16 @@ const getOneSensorData = async (incidentNum) => {
     try{
         //Using local host for now, but we need to change this URL for production
         const response = await axios.get('http://localhost:5000/sensor-data/incident/' + incidentNum);
-        console.log(response);
-        return(response);
+        console.log(response.data);
+        return(response.data);
     } catch (error){
-        console.log(error);
-        return(error);
+        if (error.response) {
+            throw new Error(error.response.status);
+        }
+        else if(error.request){
+            throw new Error(error.request.status);
+        }
+        throw new Error(error.message);
     }
 
 }
@@ -48,8 +58,13 @@ const getNumSensorData = async () => {
         console.log(response.data);
         return(response.data);
     } catch (error){
-        console.log(error);
-        return(error);
+        if (error.response) {
+            throw new Error(error.response.status);
+        }
+        else if(error.request){
+            throw new Error(error.request.status);
+        }
+        throw new Error(error.message);
     }
 }
 
