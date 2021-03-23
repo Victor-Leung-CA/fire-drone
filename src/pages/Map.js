@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import '../css/Map.css';
 import GoogleMapReact from 'google-map-react'
-import LocationMarker from '../components/LocationMarker.js'
+import LocationMarker from './LocationMarker'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 49.2827,
+      lng: -123.1207
     },
     zoom: 11
   };
@@ -24,7 +24,7 @@ class Map extends Component {
         >
           <LocationMarker
             lat={49.2827}
-            lng={123.1207}
+            lng={-123.1207}
             
           />
           
