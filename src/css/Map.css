@@ -5,3 +5,8 @@
     margin-left: 350px;
     background-color: rgb(245, 244, 244);
 }
+
+.location-icon{
+    font-size: 2rem;
+    color: red;
+}
