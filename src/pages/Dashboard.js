@@ -4,8 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Grid from "react-fast-grid";
 
 import DataChart from '../components/Chart.js';
-const sensorData = require('../API/sensorData');
-
 
 class Dashboard extends Component {
   constructor(props){
@@ -46,9 +44,13 @@ class Dashboard extends Component {
       this.eventSource.close();
   }
 
+  // This doesn't work :/
   reconnect() {
-    this.eventSource = new EventSource('http://localhost:5000/SSE');
-    console.log("Reconnecting...")
+    if(this.eventSource.readyState === 0 || this.eventSource.readyState === 2){
+      console.log("Attempting to reconnect to SSE...");
+      this.eventSource.close();
+      this.eventSource = new EventSource('http://localhost:5000/SSE');
+    }
   }
 
   render() {
