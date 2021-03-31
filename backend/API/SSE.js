@@ -18,8 +18,10 @@ const updateData = () => {
     })
 }
 
+//Initialise data
 updateData();
 
+//Event hook
 alertEvent.on('alertUpdate', () => {
     updateData();
 })
