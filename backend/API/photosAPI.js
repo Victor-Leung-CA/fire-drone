@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
 let photosModel = require('../models/photos');
+var multer  = require('multer');
+var path = require('path');
+var fs = require('fs');
+
+//multer options
+var imgPath = path.join(__dirname, '../images/')
+const upload = multer({dest: imgPath})
+var cpUpload = upload.fields([{ name: 'incidentNum', maxCount: 1 }, { name: 'photo'}])
 
 /**
  * POST method for raspberry pi to send a collection of photos
@@ -9,21 +17,25 @@ let photosModel = require('../models/photos');
  * @param {number} incidentNum - Number to keep track of alert/ IFR
  * @param {object[]} photos - Array of photos
  * @param {buffer} photos.data
- * @param {string} photos.dataType
- * @param {string} photos.time
- * @param {object} photos.coordinate
- * @param {number} photos.coordinate.longitutde
- * @param {number} photos.coordinate.latitude
+ * @param {string} photos.contentType
  * 
  * @return {object} Success message
  * @return {object} Error message
  */
-router.post('/',(req, res, next) => {
+router.post('/', cpUpload ,(req, res, next) => {
     
+    console.log("Recieved photo...")
+    console.log(req.files['photo'][0])
+    console.log(req.files['photo'])
+    console.log(req.body['incidentNum']) // -> 0
+
     //Create a new document/ instance of a model
     const photoCollection = new photosModel({
-        incidentNum: req.body.incidentNum,
-        photos: req.body.photos
+        incidentNum: req.body['incidentNum'],
+        photos: {
+            data: fs.readFileSync(req.files['photo'][0].path),
+            contentType: req.files['photo'][0].mimetype
+        }
     })
 
     //Check if there are any duplicate incident numbers
@@ -65,7 +77,8 @@ router.get('/:incidentNum',(req, res, next) => {
                 res.status(406).json({error: "No photos found"})
             }
             else{
-                res.json(photoCollection);
+                res.set('Content-Type', 'image/png')
+                res.send(photoCollection.photos[0].data);
             }
         })
         .catch(err => {

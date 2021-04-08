@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const multer = require('multer');
 
 //Schema object
 const Schema = mongoose.Schema;
@@ -6,12 +7,7 @@ const Schema = mongoose.Schema;
 //Instance of a photo
 const photoSchema = new Schema({
     data: Buffer, //Store photo data
-    dataType: String, //Indicate content type - e.g. png, jpeg
-    time: String, //Time photo was taken
-    coordinates: { //Coordinates at which photo was taken
-        longitude: Number,
-        latitude: Number,
-    }
+    contentType: String, //Indicate content type - e.g. png, jpeg
 });
 
 //Collection of photos
