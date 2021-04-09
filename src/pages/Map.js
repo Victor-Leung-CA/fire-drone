@@ -3,6 +3,7 @@ import '../css/Map.css';
 import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
 import LocationInfoBox from '../components/LocationInfoBox'
+import "../css/LocationMarker.css"
 
 const getSensorData = require("../API/sensorData").getSensorData;
 
@@ -57,7 +58,12 @@ class Map extends Component {
         >                
           {this.state.data.map(item =>{
               //console.log(item.coordinates[0].latitude)
-              return( <LocationMarker lat={item.coordinates[0].latitude} lng={item.coordinates[0].longitude} onClick={() =>this.infoClick({in: item.incidentNum, id: item.coordinates[0]._id, time: item.coordinates[0].time})}/>
+              return( <LocationMarker 
+                lat={item.coordinates[0].latitude} 
+                lng={item.coordinates[0].longitude} 
+                onClick={() =>this.infoClick({in: item.incidentNum, id: item.coordinates[0]._id, time: item.coordinates[0].time})}
+                className = "location-marker"
+                />
               )
               
             })}
