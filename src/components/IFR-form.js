@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/IFR-form.css";
 import errorImg from '../images/server-error.svg'
 const getOneSensorData = require("../API/sensorData").getOneSensorData;
+const newIFR = require("../API/IFR").newIFR;
 
 const IFRForm = (props) => {
     const [error, setError] = useState(null);
@@ -55,7 +56,10 @@ const IFRForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formInfo);
+        newIFR(formInfo)
+            .then(() => {
+                console.log(formInfo);
+            });
     }
 
     useEffect(() => {

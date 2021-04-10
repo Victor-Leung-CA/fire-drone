@@ -56,4 +56,24 @@ const updateIFR = async (updatedIFR) => {
 
 }
 
-export {getIFR, getOneIFR, updateIFR};
+/**
+ * POST method to update an IFR report
+ * @param {object} newIFR
+ * @return Response Message
+ */
+ const newIFR = async (newIFR) => {
+
+    try{
+        //Using local host for now, but we need to change this URL for production
+        const response = await axios.post('http://localhost:5000/IFR/', newIFR);
+        alert("Success!");
+        console.log(response);
+        return(response);
+    } catch (error){
+        console.log(error);
+        return(error);
+    }
+
+}
+
+export {getIFR, getOneIFR, updateIFR, newIFR};

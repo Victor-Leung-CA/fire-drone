@@ -8,6 +8,7 @@ const Photos = (props) => {
     const [photoNum, setPhotoNum] = useState(0);
     const [loaded, setLoaded] = useState (0);
     const incidentNum= props.match.params.incidentNum;
+    var imgLoaded = 0;
 
     useEffect(() => {
         getPhotoInfo(incidentNum)
@@ -31,8 +32,19 @@ const Photos = (props) => {
         var span = document.getElementsByClassName("close")[0];
 
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        span.onclick = () => {
             modal.style.display = "none";
+        }
+
+        document.onkeydown = e => {
+            if(e.key === "Escape"){modal.style.display = "none";}
+        }
+    }
+
+    const imageLoaded = () => {
+        imgLoaded++;
+        if(imgLoaded == photoInfo && imgLoaded != 0){
+            setLoaded(1);
         }
     }
 
@@ -45,7 +57,7 @@ const Photos = (props) => {
                         className="photo_image" 
                         onClick={() => onClickPhoto(i)} 
                         style={loaded ? {} : { display: 'none' }}
-                        onLoad={() => setTimeout(() => { setLoaded(1); }, 700)}
+                        onLoad={() => imageLoaded()}
                         name={i} 
                         alt = "Forest Fire Photo"
                         src={"http://localhost:5000/photos/" + incidentNum + '/' + i} />

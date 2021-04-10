@@ -15,10 +15,10 @@ const IFRSchema = new Schema({
     reportedBy: String,
 
     // Step 2
+    size: Number,
     radius: Number,
     fuels: Number,
     fireRank: Number,
-    //Alpha
 
     // Step 3
     valAtRisk: Number,

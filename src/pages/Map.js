@@ -18,7 +18,7 @@ class Map extends Component {
 
   constructor(props){
     super(props);
-    this.state = {data: [{incidentNum: 0, alertStatus: 0, coordinates: [{longitude: -123.1207,latitude: 49.2827}]}], status: {in: 0, time: 0, display: 0}}
+    this.state = {data: [{incidentNum: 0, alertStatus: 0, coordinates: [{longitude: -123.1207,latitude: 49.2827}]}], status: {in: 0, time: 0, display: false}}
     var alldata =[]
     this.infoClick= this.infoClick.bind(this);
     
@@ -36,7 +36,6 @@ class Map extends Component {
   
 
   infoClick(status){
-    console.log('Click happened');
     this.setState({
       status: status
     });
