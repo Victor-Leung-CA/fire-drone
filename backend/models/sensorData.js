@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const coordinates = new Schema({
     longitude: Number,
     latitude: Number,
-    time: Number
+    time: Date
 })
 
 const sensorDataSchema = new Schema({

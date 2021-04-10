@@ -1,0 +1,128 @@
+.photoContainer{
+    font-family: Lato;
+    width: calc(100vw - 350px);
+    margin-left: 350px;
+    background-color: rgb(245, 244, 244);
+    padding-bottom: 8rem;
+    min-height: 100vh;
+}
+
+.loader {
+    position: absolute;
+    top: calc(50% - 5rem);
+    left: calc(350px + 0.5 *(100vw - 350px) - 3rem);
+    width: 6rem;
+    height: 6rem;
+    border: 1.1em solid rgb(218, 216, 216);
+    border-left: 1.1em solid #f0a42a;
+    border-radius: 50%;
+    animation: load8 1.1s infinite linear;
+}
+
+.loadText{
+    position: absolute;
+    top: calc(50% + 3rem);
+    left: calc(350px + 0.5 *(100vw - 350px) - 2.5rem);
+}
+  
+@keyframes load8 {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+.photoRow{
+    padding: 5rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    margin: auto;
+}
+
+.photo_image{
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding: 2rem;
+    margin: auto;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+}
+
+.photo_image:hover{
+    opacity: 80%;
+}
+
+.photo_modal{
+    display: block;
+    margin: auto;
+    max-width: 80%;
+    height: auto;
+    height: 80%;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    max-width: 100%; /* Full width */
+    max-height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+  
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+margin: auto;
+display: block;
+width: 80%;
+text-align: center;
+color: #ccc;
+padding-top: 3.5rem;
+padding-bottom: 1rem;
+}
+
+/* Animations */
+.photo_modal, #caption {
+animation-name: zoom;
+animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+from {transform:scale(0)}
+to {transform:scale(1)}
+}
+
+@keyframes fadeIn {
+from {opacity: 0; transform:scale(0.8)}
+to {opacity : 1; transform:scale(1)}
+}
+
+.close {
+position: absolute;
+top: 15px;
+right: 35px;
+color: #f1f1f1;
+font-size: 40px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+color: rgb(233, 144, 2);
+text-decoration: none;
+cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}

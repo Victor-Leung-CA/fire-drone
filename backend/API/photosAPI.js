@@ -25,17 +25,26 @@ var cpUpload = upload.fields([{ name: 'incidentNum', maxCount: 1 }, { name: 'pho
 router.post('/', cpUpload ,(req, res, next) => {
     
     console.log("Recieved photo...")
-    console.log(req.files['photo'][0])
+    // console.log(req.files['photo'][0])
+    // console.log(req.files['photo'][1])
+    // console.log(req.files['photo'][2])
     console.log(req.files['photo'])
-    console.log(req.body['incidentNum']) // -> 0
+    // console.log(req.body['incidentNum']) // -> 0
 
     //Create a new document/ instance of a model
+
+    var photoGallery = [];
+    req.files['photo'].map((photo,index) => {
+        photoElement = {
+            data: fs.readFileSync(req.files['photo'][index].path),
+            contentType: req.files['photo'][index].mimetype
+        }
+        photoGallery.push(photoElement)
+    })
+
     const photoCollection = new photosModel({
         incidentNum: req.body['incidentNum'],
-        photos: {
-            data: fs.readFileSync(req.files['photo'][0].path),
-            contentType: req.files['photo'][0].mimetype
-        }
+        photos: photoGallery
     })
 
     //Check if there are any duplicate incident numbers
@@ -77,8 +86,33 @@ router.get('/:incidentNum',(req, res, next) => {
                 res.status(406).json({error: "No photos found"})
             }
             else{
+                res.json(photoCollection.photos.length);
+            }
+        })
+        .catch(err => {
+            res.error(err);
+        })
+})
+
+/**
+ *  GET method to retrieve the desired photo collection.
+ * @module photos/GET
+ * @param {number} incidentNum, photoNum - number to reference the alert/IFR
+ * @return {object} photoCollection - Collection of photos
+ * @return {object} Error message
+ */
+ router.get('/:incidentNum/:photoNum',(req, res, next) => {
+    photosModel.findOne({'incidentNum': req.params.incidentNum})
+        .then(photoCollection => {
+            if(photoCollection == null){
+                res.status(406).json({error: "No photos found"})
+            }
+            else if(req.params.photoNum < photoCollection.photos.length){
                 res.set('Content-Type', 'image/png')
-                res.send(photoCollection.photos[0].data);
+                res.send(photoCollection.photos[req.params.photoNum].data);
+            }
+            else{
+                res.status(406).send("Incorrect photo index number!")
             }
         })
         .catch(err => {

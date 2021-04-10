@@ -4,9 +4,7 @@ import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
 import LocationInfoBox from '../components/LocationInfoBox'
 import "../css/LocationMarker.css"
-
 const getSensorData = require("../API/sensorData").getSensorData;
-
 
 class Map extends Component {
   static defaultProps = {
@@ -20,7 +18,7 @@ class Map extends Component {
 
   constructor(props){
     super(props);
-    this.state = {data: [{incidentNum: 0, coordinates: [{longitude: -123.1207,latitude: 49.2827}]}]}
+    this.state = {data: [{incidentNum: 0, alertStatus: 0, coordinates: [{longitude: -123.1207,latitude: 49.2827}]}], status: {in: 0, time: 0, display: 0}}
     var alldata =[]
     this.infoClick= this.infoClick.bind(this);
     
@@ -31,20 +29,17 @@ class Map extends Component {
       })
       
       this.state.data=alldata
-      console.log(this.state.data)
+      console.log(this.state)
       this.forceUpdate();
-      //console.log("updated")
-      //console.log(this.state.data[0].coordinates[0].latitude)
     })
   }
   
 
-  infoClick(id){
+  infoClick(status){
     console.log('Click happened');
-    this.setState(state => ({
-      id: id
-    }))
-    console.log(id)
+    this.setState({
+      status: status
+    });
   }
 
 
@@ -57,20 +52,21 @@ class Map extends Component {
           defaultZoom={this.props.zoom}
         >                
           {this.state.data.map(item =>{
-              //console.log(item.coordinates[0].latitude)
-              return( <LocationMarker 
+              return( 
+                
+                <LocationMarker 
                 lat={item.coordinates[0].latitude} 
                 lng={item.coordinates[0].longitude} 
-                onClick={() =>this.infoClick({in: item.incidentNum, id: item.coordinates[0]._id, time: item.coordinates[0].time})}
+                onClick={() =>this.infoClick({in: item.incidentNum, coordinateInfo: item.coordinates[0], alertStatus: item.alertStatus, display: true})}
                 className = "location-marker"
                 />
-              )
-              
-            })}
 
+              )
+            })}
         </GoogleMapReact>
 
-        {this.state.id && <LocationInfoBox info={this.state.id} />}  
+        {this.state.status.display && <LocationInfoBox info={this.state.status} />}  
+
       </div>
     );
   }
