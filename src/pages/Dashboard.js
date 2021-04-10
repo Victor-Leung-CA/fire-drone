@@ -11,19 +11,31 @@ class Dashboard extends Component {
     this.state = {data: [{incidentNum: "loading...", coordinates: "loading...", IFRStatus: "loading...", alertStatus: "loading..."}]};
     this.eventSource = new EventSource('http://localhost:5000/SSE');
 
-    this.sleep(2000).then(()=>{
-        if(this.eventSource.readyState === 0 || this.eventSource.readyState === 2){
-            console.log("Attempting to reconnect to SSE...");
-            this.eventSource = new EventSource('http://localhost:5000/SSE');
-        }
-    })
-
     this.eventSource.onopen = (e) => {
-        console.log("Connected to SSE...");
+        console.log("Connected to real time server updates.");
     };
 
-    this.reconnect = this.reconnect.bind(this);
+    this.eventSource.onmessage = () => {
+      console.log("MESSAGE!");
+    }
 
+    this.eventSource.onerror = () =>{
+      console.log("Error with real time connection...");
+      this.eventSource.close();
+    }
+
+    this.updateData = this.updateData.bind(this);
+    this.refreshScreen = this.refreshScreen.bind(this);
+  }
+
+  updateData(updatedData){
+    this.state.data = updatedData;
+    this.setState({data: updatedData});
+  }
+
+  refreshScreen(){
+    this.forceUpdate();
+    console.log("refreshing")
   }
 
   // sleep time expects milliseconds
@@ -32,25 +44,18 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-      this.eventSource.addEventListener('alertUpdate', (e) => {
+
+    this.eventSource.addEventListener('alertUpdate', (e) => {
         console.log(JSON.parse(e.data));
         var data = JSON.parse(e.data);
         this.setState({data: data});
       })
+
   }
 
   componentWillUnmount() {
-      console.log("Disconnecting from SSE...")
+      console.log("Disconnecting to real time server updates.")
       this.eventSource.close();
-  }
-
-  // This doesn't work :/
-  reconnect() {
-    if(this.eventSource.readyState === 0 || this.eventSource.readyState === 2){
-      console.log("Attempting to reconnect to SSE...");
-      this.eventSource.close();
-      this.eventSource = new EventSource('http://localhost:5000/SSE');
-    }
   }
 
   render() {
@@ -59,7 +64,7 @@ class Dashboard extends Component {
         <Grid container spacing={2} direction="row" className="dashBoard-row">
 
           <Grid item sm={6} xs={12}>
-            <button onClick={this.reconnect} className="btn refreshBtn">
+            <button onClick={() => this.refreshScreen()} className="btn refreshBtn">
               Refresh Data
             </button>
           </Grid>
