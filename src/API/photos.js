@@ -1,17 +1,16 @@
 import axios from 'axios'
 
 /**
- * Get method to retrieve a collection of photos for an incident
+ * Get method to retrieve information about photos for an incident num
  * @param {number} incidentNum
  * @return {object} Photo collection
  */
-const getPhotos = async (incidentNum) => {
+const getPhotoInfo = async (incidentNum) => {
 
     try{
         //Using local host for now, but we need to change this URL for production
         const response = await axios.get('http://localhost:5000/photos/' + incidentNum);
-        console.log(response);
-        return(response);
+        return(response.data);
     } catch (error){
         console.log(error);
         return(error);
@@ -19,4 +18,4 @@ const getPhotos = async (incidentNum) => {
 
 }
 
-export {getPhotos};
+export {getPhotoInfo};

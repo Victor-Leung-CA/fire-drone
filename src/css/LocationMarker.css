@@ -1,0 +1,10 @@
+.location-marker{
+    transform-origin: 20% 20%;
+}
+
+.location-marker:hover{
+    transform: scale(1.5,1.5) !important;
+    width: 100px;
+    transition: 0.2s;
+    transition-timing-function: ease;
+}

@@ -9,7 +9,7 @@ import Gallery from "./pages/Gallery";
 import Map from "./pages/Map";
 import NewIFR from "./components/NewIFR";
 import IFRForm from "./components/IFR-form";
-import SSETest from "./components/sse-test";
+import Photos from "./pages/Photos"
 
 class App extends React.Component {
   render(){
@@ -24,7 +24,7 @@ class App extends React.Component {
             <Route path="/new-ifr" exact component = {NewIFR} />
             <Route path="/gallery" exact component = {Gallery} />
             <Route path="/edit-ifr/:incidentNum" exact component = {IFRForm} />
-            <Route path="/sse-test" exact component = {SSETest} />
+            <Route path="/photos/:incidentNum" exact component = {Photos} />
           </Switch>
       </BrowserRouter>
     </div>

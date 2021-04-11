@@ -15,7 +15,7 @@ class Sidebar extends React.Component {
   render(){
     return(
         <nav className="sidebar">
-            <img className = "sidebarLogo" src={fireDroneLogo} />
+            <img className = "sidebarLogo" alt="icon" src={fireDroneLogo} />
                 <NavLink 
                     className="navbarLink" 
                     activeClassName="active" 
@@ -26,31 +26,25 @@ class Sidebar extends React.Component {
                     className="navbarLink" 
                     activeClassName="active" 
                     to='/map'>
-                    <img className="sidebarIcon" src={mapImg}/>Map
+                    <img className="sidebarIcon" alt="icon" src={mapImg}/>Map
                 </NavLink>
                 <NavLink 
                     className="navbarLink" 
                     activeClassName="active" 
                     to='/alert-history'>
-                    <img className="sidebarIcon" src={alertImg}/>Alert History
+                    <img className="sidebarIcon" alt="icon" src={alertImg}/>Alert History
                 </NavLink>
                 <NavLink 
                     className="navbarLink" 
                     activeClassName="active" 
                     to='/new-ifr'>
-                    <img className="sidebarIcon" src={penImg}/>New IFR
+                    <img className="sidebarIcon" alt="icon" src={penImg}/>New IFR
                 </NavLink>
                 <NavLink 
                     className="navbarLink" 
                     activeClassName="active" 
-                    to='/gallery'>
-                    <img className="sidebarIcon" src={galleryImg}/>Gallery
-                </NavLink>
-                <NavLink 
-                    className="navbarLink" 
-                    activeClassName="active" 
-                    to='/sse-test'>
-                    <img className="sidebarIcon" src={alertImg}/>SSE Test
+                    to='/photos/0'>
+                    <img className="sidebarIcon" alt="icon" src={galleryImg}/>Photos
                 </NavLink>
         </nav>
     );

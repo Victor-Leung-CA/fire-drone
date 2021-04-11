@@ -4,12 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/IFR-form.css";
 import errorImg from '../images/server-error.svg'
 const getOneSensorData = require("../API/sensorData").getOneSensorData;
+const newIFR = require("../API/IFR").newIFR;
 
 const IFRForm = (props) => {
     const [error, setError] = useState(null);
-    
+    const [date, setDate] = useState('');
+
     const [sensorDataInfo, setSensorDataInfo] = useState({
-        incidentNum: 0,
+        incidentNum: props.match.params.incidentNum,
         coordinates: [{
             longitude: 0,
             latitude: 0,
@@ -19,7 +21,7 @@ const IFRForm = (props) => {
     
     const [formInfo, setFormInfo] = useState({
         // Step 1
-        incidentNum: sensorDataInfo.incidentNum,
+        incidentNum: props.match.params.incidentNum,
         reportedBy: '',
         elevation: 0,
 
@@ -54,12 +56,17 @@ const IFRForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formInfo);
+        newIFR(formInfo)
+            .then(() => {
+                console.log(formInfo);
+            });
     }
 
     useEffect(() => {
-        getOneSensorData(props.match.params.incidentNum)
+        getOneSensorData(sensorDataInfo.incidentNum)
             .then(data => {
+                var date = new Date(data.coordinates[0].time);
+                setDate(date.toString());
                 setSensorDataInfo(data);
                 setFormInfo(formInfo => ({...formInfo, incidentNum: data.incidentNum}))
             })
@@ -96,7 +103,7 @@ const IFRForm = (props) => {
                             options={[{value: sensorDataInfo.incidentNum, label: sensorDataInfo.incidentNum}]}/>
                             <p>Date & Time</p>
                             <Select className="formSubmissionSelect"
-                            options= {[{value: sensorDataInfo.coordinates[0].time, label: sensorDataInfo.coordinates[0].time}]}/>
+                            options= {[{value: sensorDataInfo.coordinates[0].time, label: date}]}/>
                             <p>Elevation (m)</p>
                             <input className="IFRInput" onChange={handleInputChange} type="number" min="0" name="elevation"></input>
                         </div>
@@ -171,7 +178,7 @@ const IFRForm = (props) => {
                             <p>Probability of Success (%)</p>
                             <input className="IFRInput" onChange={handleInputChange} type="number" min="0" name="probSuccess"></input>
                             <p>Action Recommended</p>
-                            <textarea className="IFRInput" onChange={handleInputChange} name="action" contenteditable="true"></textarea>
+                            <textarea className="IFRInput" onChange={handleInputChange} name="action"></textarea>
                         </div>
                         <div className="col-md-6">
                             <p>Estimated Cost of Control</p>

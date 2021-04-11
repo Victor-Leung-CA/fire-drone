@@ -77,6 +77,8 @@ router.post('/', (req, res, next) => {
         estCost: req.body.estCost
     })
 
+    // const IFR = new IFRModel(req.body)
+
     //Save IFR into database
     IFR.save()
         .then(() => {

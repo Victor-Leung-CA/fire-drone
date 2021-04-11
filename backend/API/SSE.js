@@ -18,8 +18,10 @@ const updateData = () => {
     })
 }
 
+//Initialise data
 updateData();
 
+//Event hook
 alertEvent.on('alertUpdate', () => {
     updateData();
 })
@@ -45,13 +47,6 @@ router.get('/', (req, res, next) => {
         res.write('event: alertUpdate\n' + 'data:' + JSON.stringify(sensorDataCollection) + "\n\n");
     }
 
-    //Event based updates to clients
-    countEvent.on('countUpdate', () => {
-        if(connection){
-            res.write('event: countUpdate\n' + 'data:' + JSON.stringify(count) + "\n\n");
-        }
-    });
-
     alertEvent.on('updated', () => {
         if(connection){
             res.write('event: alertUpdate\n' + 'data:' + JSON.stringify(sensorDataCollection) + "\n\n");
@@ -69,13 +64,6 @@ router.get('/', (req, res, next) => {
 });
 
 
-//Post method to add new data
-router.post('/add', (req, res, next) => {
-    count++;
-    countEvent.emit('countUpdate');
-    console.log("Sending updated count: " + count);
-    res.json("Count: " + count);
-})
 
 module.exports.sse = router;
 module.exports.event = alertEvent;

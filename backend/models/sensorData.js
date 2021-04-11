@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const coordinates = new Schema({
     longitude: Number,
     latitude: Number,
-    time: Number
+    time: Date
 })
 
 const sensorDataSchema = new Schema({
@@ -15,7 +15,9 @@ const sensorDataSchema = new Schema({
         unique: true,
         required: true
     },
-    coordinates: [coordinates]
+    coordinates: [coordinates],
+    IFRStatus: Number,
+    alertStatus: Number
 }, {
         timestamps: true
 });

@@ -20,7 +20,9 @@ router.get('/', (req, res, next) => {
             else{
                 res.json(data.map(data => ({
                     incidentNum: data.incidentNum,
-                    coordinates: data.coordinates, 
+                    coordinates: data.coordinates,
+                    IFRStatus: data.IFRStatus,
+                    alertStatus: data.alertStatus
                 })));
             }
         })
@@ -93,8 +95,10 @@ router.post('/', (req, res) => {
 
     //Create new struct for data
     const newSensorData = new sensorData({
-        incidentNum,
-        coordinates
+        incidentNum: incidentNum,
+        coordinates: coordinates,
+        IFRStatus: 0,
+        alertStatus: 0
     });
 
     newSensorData.save()
@@ -106,6 +110,42 @@ router.post('/', (req, res) => {
             res.status(400).json(err.message);
             console.log(message);
         })
+});
+
+
+/**
+ * PUT method to update IFR status and alert status
+ * @module sensorData/PUT
+ * 
+ * @param {number} incidentNum - Number to keep track of alert/ IFR
+ * @param {number} IFRStatus
+ * @param {number} alertStatus
+ * 
+ * @return {object} Sucess message
+ * @return {object} Error message
+ */
+ router.put('/update_status', (req, res) => {
+    //Assign request body input as new variables
+    const incidentNum = req.body.incidentNum;
+
+    //Update status variables
+    if(req.body.IFRStatus !== undefined){
+        sensorData.updateOne({incidentNum: incidentNum}, {$set: {IFRStatus: req.body.IFRStatus}})
+            .then(() => {
+                res.json("IFR Status updated!");
+                alertEvent.emit('alertUpdate');
+            });
+    }
+    else if(req.body.alertStatus !== undefined){
+        sensorData.updateOne({incidentNum: incidentNum}, {$set: {alertStatus: req.body.alertStatus}})
+            .then(() => {
+                res.json("Alert Status updated!")
+                alertEvent.emit('alertUpdate');
+            });
+    }
+    else{
+        res.json("Body field is not defined properly!");
+    }
 });
 
 module.exports = router;
