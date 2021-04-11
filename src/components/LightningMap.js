@@ -1,7 +1,6 @@
 import React, { Component,} from 'react';
 import '../css/Dashboard.css';
 import GoogleMapReact from 'google-map-react'
-import LightningMarker from './LightningMarker'
 const getSensorData = require("../API/sensorData").getSensorData;
 
 class LMap extends Component {
@@ -48,18 +47,6 @@ class LMap extends Component {
           defaultCenter={{lat: this.state.data[0].coordinates[0].latitude, lng: this.state.data[0].coordinates[0].longitude} }
           defaultZoom={this.props.zoom}
         >                
-          {this.state.data.map(item =>{
-              return( 
-                
-                <LightningMarker 
-                lat={item.coordinates[0].latitude} 
-                lng={item.coordinates[0].longitude} 
-                onClick={() =>this.infoClick({in: item.incidentNum, coordinateInfo: item.coordinates[0], alertStatus: item.alertStatus, display: true})}
-                className = "lightning-marker"
-                />
-
-              )
-            })}
         </GoogleMapReact>
 
         {/*{this.state.status.display && <LocationInfoBox info={this.state.status} />}  */}

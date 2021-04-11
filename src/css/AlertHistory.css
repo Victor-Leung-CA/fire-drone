@@ -1,8 +1,4 @@
-/*fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
-.AlertHistory {
+.page{
   font-family: Lato;
   width: calc(100vw - 350px);
   margin-left: 350px;
@@ -11,30 +7,68 @@
   min-height: 100vh;
 }
 
-.alertBlock{
+.recentAlerts{
   padding: 2rem;
+  margin: 2rem;
+  margin-left: 0;
+  margin-top: 0;
   box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
   border-radius: 0.5rem;
   background-color: white;
-  margin: 3rem;
+}
+
+.alertFilled{
+  display: inline-block;
+  background-color: #7fc248;
+  padding: 0.4rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  color: white;
+  font-weight: 700;
+  border-radius: 0.7rem;
+}
+
+.alertUnfilled{
+  display: inline-block;
+  background-color: #EB5757;
+  padding: 0.4rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: white;
+  font-weight: 700;
+  border-radius: 0.7rem;
 }
 
 
-.archive {
-  display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(180px, 1fr));
-  grid-gap: 1em;
-  background:#F4F5F7;
+.seePhotobtn{
+  border-radius: 2rem;
+  padding: 0.6rem;
+  box-shadow: 0 0 7.5px -5px rgb(53, 53, 53);
+  background-color: white;
+  display: block;
+  font-size: 13px;
+  width: 100%;
 }
 
-.article {
-  color:#323C47;
-  padding: 1em;
-  background: red;
-  box-shadow: 0px 6px -3px rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
+.seePhotobtn:hover{
+  box-shadow: 0 1px 8.5px -5px black;
 }
 
-.article.info{
-  color:#4C5862;
+.alertStatusActive{
+  border-radius: 2rem;
+  background-color:#F9AA33;
+  color:white;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.4rem;
+}
+
+
+.alertStatusInactive{
+  border-radius: 2rem;
+  background-color:#4A6572;
+  color:white;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.4rem;
 }

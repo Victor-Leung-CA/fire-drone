@@ -14,7 +14,7 @@
 
 .alertFilled{
     display: inline-block;
-    background-color: rgb(26, 34, 71);
+    background-color: #7fc248;
     padding: 0.4rem;
     padding-left: 3.5rem;
     padding-right: 3.5rem;
@@ -25,7 +25,7 @@
 
 .alertUnfilled{
     display: inline-block;
-    background-color: rgb(85, 25, 25);
+    background-color: #EB5757;
     padding: 0.4rem;
     padding-left: 3rem;
     padding-right: 3rem;
