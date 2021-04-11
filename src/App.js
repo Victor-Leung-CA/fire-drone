@@ -22,7 +22,7 @@ class App extends React.Component {
             <Route path="/map" exact component = {Map} />
             <Route path="/alert-history" exact component = {AlertHistory} />
             <Route path="/new-ifr" exact component = {NewIFR} />
-            <Route path="/gallery" exact component = {Gallery} />
+            {/* <Route path="/gallery" exact component = {Gallery} /> */}
             <Route path="/edit-ifr/:incidentNum" exact component = {IFRForm} />
             <Route path="/photos/:incidentNum" exact component = {Photos} />
           </Switch>

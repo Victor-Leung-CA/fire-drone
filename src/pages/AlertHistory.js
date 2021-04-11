@@ -55,6 +55,7 @@ class AlertHistory extends Component {
 
           let ifrStat;
           let alertStat;
+          let IFRbool;
 
           if (item.IFRStatus=="0"){
             /*un-edited*/
@@ -71,6 +72,12 @@ class AlertHistory extends Component {
           if (item.alertStatus=="1"){
             /*active*/
             alertStat = <div className = "alertStatusActive"> Active </div>;
+          }
+          if (item.incidentNum == 0){
+            IFRbool = true;
+          }
+          if (item.incidentNum != 0){
+            IFRbool = false;
           }
 
             return(
@@ -92,24 +99,29 @@ class AlertHistory extends Component {
                 </Grid>
 
                 <Grid item xs={4}>
-                  <div>Rank: {item.fireRank}</div>
+                  {IFRbool && <div>Rank: 2 (Open flame, no spread)</div>}
+                  {!IFRbool && <div>Rank: {item.fireRank}</div>}
                 </Grid>
 
                 <Grid item xs={4}>
-                  <div>Fuels: {item.fuels}</div>
+                {IFRbool && <div>Fuels: 6 (Open timber)</div>}
+                {!IFRbool && <div>Fuels: {item.fuels}</div>}
                 </Grid>
 
 
                 <Grid item xs={4}>
-                  <div>Values at Risk: {item.valAtRisk}</div>
+                  {IFRbool && <div>Values at Risk: 2 (Resources)</div>}
+                  {!IFRbool && <div>Values at Risk: {item.valAtRisk}</div>}
                 </Grid>
 
                 <Grid item xs={4}>
-                  <div>Access: {item.access}</div>
+                  {IFRbool && <div>Access: 2 (Helispot), 4000m</div>}
+                  {!IFRbool && <div>Access: {item.access}</div>}
                 </Grid>
 
                 <Grid item xs={4}>
-                  <div>Fire Size: {item.radius}</div>
+                  {IFRbool && <div>Fire Size: 300m</div>}
+                  {!IFRbool && <div>Fire Size: {item.radius}</div>}
                 </Grid>
 
 
