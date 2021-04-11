@@ -8,3 +8,18 @@
     transition: 0.2s;
     transition-timing-function: ease;
 }
+
+.location-icon0{
+    font-size: 2rem;
+    color: red;
+}
+
+.location-icon1{
+    font-size: 2rem;
+    color: orange;
+}
+
+.location-icon2{
+    font-size: 2rem;
+    color: green;
+}

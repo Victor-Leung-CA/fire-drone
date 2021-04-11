@@ -6,11 +6,6 @@
     background-color: rgb(245, 244, 244);
 }
 
-.location-icon{
-    font-size: 2rem;
-    color: red;
-}
-
 .location-info{
     position: absolute;
     top: 50px;
