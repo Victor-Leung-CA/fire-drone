@@ -1,7 +1,7 @@
 import React, { Component,} from 'react';
 import '../css/Map.css';
 import GoogleMapReact from 'google-map-react'
-import LocationMarker from './LocationMarker'
+import LocationMarker from '../components/LocationMarker'
 import LocationInfoBox from '../components/LocationInfoBox'
 import "../css/LocationMarker.css"
 const getSensorData = require("../API/sensorData").getSensorData;
