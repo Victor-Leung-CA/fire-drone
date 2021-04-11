@@ -2,24 +2,36 @@
     font-family: Lato;
     width: calc(100vw - 350px);
     margin-left: 350px;
-    padding: 10rem;
+    padding: 6rem;
     background-color: rgb(245, 244, 244);
     min-height: 100vh;
 }
 
-
-
-.refreshBtn{
-    border-radius: 2rem;
-    padding: 0.6rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    box-shadow: 0 0 7px -5px rgb(144, 144, 144);
-    background-color: white;
+.buttonIcon{
+    width: 1rem;
+    margin-right: 0.3rem;
 }
 
-.refreshBtn:hover{
-    box-shadow: 0 1px 8.5px -5px black;
+.alertFilled{
+    display: inline-block;
+    background-color: rgb(26, 34, 71);
+    padding: 0.4rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 0.7rem;
+}
+
+.alertUnfilled{
+    display: inline-block;
+    background-color: rgb(85, 25, 25);
+    padding: 0.4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 0.7rem;
 }
 
 .recentAlerts{
@@ -32,21 +44,79 @@
     background-color: white;
 }
 
+.seePhotobtn{
+    border-radius: 2rem;
+    padding: 0.6rem;
+    box-shadow: 0 0 7.5px -5px rgb(53, 53, 53);
+    background-color: white;
+    display: block;
+    font-size: 13px;
+    width: 100%;
+}
+
+.seePhotobtn:hover{
+    box-shadow: 0 1px 8.5px -5px black;
+}
+
+.alertStatusActive{
+    border-radius: 2rem;
+    background-color:#F9AA33;
+    color:white;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.4rem;
+}
+
+
+.alertStatusInactive{
+    border-radius: 2rem;
+    background-color:#4A6572;
+    color:white;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.4rem;
+}
+
 .graphContainer{
     padding: 2rem;
+    width: 30vw;
+    margin-bottom: 1rem;
+    margin-top: 0.3rem;
     box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
     border-radius: 0.5rem;
     background-color: white;
 }
 
 .graph{
-    min-width: 500px i !important;
-    height: 1000px;
+    width: calc(28vw);
 }
 
 .fireRisk{
     padding: 2rem;
+    width: 30vw;
     box-shadow: 0 0 9px -5px rgba(114, 114, 114, 0.308);
     border-radius: 0.5rem;
+    background-color: white;;
+}
+
+.LmapContainer{
+    width: 27vw;
+    height: 50vh;
     background-color: white;
+}
+
+.lightning-marker{
+    transform-origin: 20% 20%;
+}
+
+.lightning-marker:hover{
+    transform: scale(1.5,1.5) !important;
+    width: 100px;
+    transition: 0.2s;
+    transition-timing-function: ease;
+}
+
+.location-icon{
+    font-size: 2rem;
+    color: yellow;
 }

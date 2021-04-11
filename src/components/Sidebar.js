@@ -40,12 +40,12 @@ class Sidebar extends React.Component {
                     to='/new-ifr'>
                     <img className="sidebarIcon" alt="icon" src={penImg}/>New IFR
                 </NavLink>
-                <NavLink 
+                {/* <NavLink 
                     className="navbarLink" 
                     activeClassName="active" 
                     to='/photos/0'>
                     <img className="sidebarIcon" alt="icon" src={galleryImg}/>Photos
-                </NavLink>
+                </NavLink> */}
         </nav>
     );
   }
